@@ -16,43 +16,14 @@
 \documentclass[aspectratio=43]{beamer}
 \usetheme{usi}
 
-\usepackage{multirow}
-\usepackage{hhline}
-\usepackage{tikz}
-\usepackage{graphicx}
-\usepackage{caption}
+%% include your packages here
 \usepackage{listings}
-\usepackage{array}
-\usepackage{xcolor}
-\usepackage{subcaption}
-\usepackage{algorithm}
-\usepackage[noend]{algpseudocode}
-\usetikzlibrary{shapes.geometric}
-
-\usepackage{listings}
-\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
-\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
-\definecolor{mylilas}{RGB}{170,55,241}
 
 %sets color of hyperlinks (short title in the footer)
 \hypersetup{colorlinks=true, allcolors=black}
 
 %use rounded blocks with shadows
 \setbeamertemplate{blocks}[rounded][shadow=true]
-
-\newcommand\score[2]{
-\pgfmathsetmacro\pgfxa{#1+1}
-\tikzstyle{scorestars}=[star, star points=5, star point ratio=2.25, draw,inner sep=1.3pt,anchor=inner point 3]
-  \begin{tikzpicture}[baseline]
-    \foreach \i in {1,...,#2} {
-    \pgfmathparse{(\i<=#1?"usi@yellow":"gray")}
-    \edef\starcolor{\pgfmathresult}
-    \draw (\i*2.0ex,0) node[name=star\i,scorestars,fill=\starcolor,color=\starcolor]  {};
-   }
-  \end{tikzpicture}
-}
-
-\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
 
 \setlength{\fboxsep}{0.25pt}%
 \setlength{\fboxrule}{0pt}%
@@ -64,24 +35,6 @@
 
 
 \begin{document}
-
-\lstset{language=Matlab,%
-    %basicstyle=\color{red},
-    breaklines=true,%
-    morekeywords={matlab2tikz},
-    keywordstyle=\color{blue},%
-    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
-    identifierstyle=\color{black},%
-    stringstyle=\color{mylilas},
-    commentstyle=\color{mygreen},%
-    showstringspaces=false,%without this there will be a symbol in the places where there is a space
-    numbers=left,%
-    numberstyle={\footnotesize \color{black}},% size of the numbers
-    numbersep=9pt, % this defines how far the numbers are from the text
-    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
-    %emph=[2]{word1,word2}, emphstyle=[2]{style},
-    frame=none,  
-}
 
 \begin{frame}
 \titlepage
