@@ -1,3 +1,4 @@
+% Juraj Kardos, USI Lugano, juraj.kardos@usi.ch,
 % Dmitry Mikushin, USI Lugano, dmitry.mikushin@usi.ch,
 % using portions of original style file by Tom Cashman
 %
@@ -12,8 +13,7 @@
 % This is an example beamer presentation, which uses Università della Svizzera italiana
 % design theme.
 
-\documentclass[aspectratio=169]{beamer}
-
+\documentclass[aspectratio=43]{beamer}
 \usetheme{usi}
 
 \usepackage{multirow}
@@ -21,11 +21,24 @@
 \usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{caption}
-\usepackage{subcaption}
 \usepackage{listings}
 \usepackage{array}
 \usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
 \usetikzlibrary{shapes.geometric}
+
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+%sets color of hyperlinks (short title in the footer)
+\hypersetup{colorlinks=true, allcolors=black}
+
+%use rounded blocks with shadows
+\setbeamertemplate{blocks}[rounded][shadow=true]
 
 \newcommand\score[2]{
 \pgfmathsetmacro\pgfxa{#1+1}
@@ -44,27 +57,75 @@
 \setlength{\fboxsep}{0.25pt}%
 \setlength{\fboxrule}{0pt}%
 
-\title[Title footnote]{\textbf{Title}\\[0.5em] Subtitle}
-\author{Juraj Kardo\v{s}}
-\institute{(University of Lugano)}
+\title[Title]{\textbf{Title\\ Subtitle}}
+\author{Olaf Schenk, \\Radim Janalík, \\Juraj Kardo\v{s}}
+\institute{Faculty of Informatics}
 \date{\today}
 
 
 \begin{document}
+
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\footnotesize \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},
+    frame=none,  
+}
+
 \begin{frame}
 \titlepage
 \end{frame}
+
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 
-\begin{frame}[fragile]{Motivation}
+%-------------------------------------------------------------------------------
+\begin{frame}[fragile]{Title}
 
-\begin{itemize}
-\item Impact of \textbf{data transfers} on overall application performance
-\end{itemize}
-
+What is the scientific problem being solved?
+\begin{block}{List of the problems}
+    \begin{itemize}
+        \item Problem 1
+        \item Problem 2
+        \item Problem 3
+    \end{itemize}
+\end{block}
 
 \end{frame}
 %-------------------------------------------------------------------------------
+\begin{frame}[fragile]{Title}
+If you pick up the parallelization of an important algorithm, describe both the complexity of the sequential and the parallel algorithm.
+\end{frame}
+%-------------------------------------------------------------------------------
+\begin{frame}[fragile]{Title}
+How well did the application achieve its scientific objective? Are simulation results compared to physical results?
+\end{frame}
+%-------------------------------------------------------------------------------
+\begin{frame}[fragile]{Title}
+What parallel platform has the application or the algorithm targeted? (distributed vs.shared memory, graphical processing units, vector, etc.). What tools were used to build the application or to implement the algorithm? (languages, libraries, etc.)
+\end{frame}
+%-------------------------------------------------------------------------------
+\begin{frame}[fragile]{Title}
+If the application or the algorithm is run on a major supercomputer, where does that computer rank on the Top 500 list?
+\end{frame}
+%-------------------------------------------------------------------------------
+\begin{frame}[fragile]{Title}
+How well did the application or the algorithm perform? How does this compare to the platform’s best possible performance?
+\end{frame}
+%-------------------------------------------------------------------------------
+\begin{frame}[fragile]{Title}
+Does the application or the algorithm scale to large problems on many processors? If you believe it has not, what bottlenecks may have limited its performance?
+\end{frame}
 
 \end{document}
