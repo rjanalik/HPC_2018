@@ -1,0 +1,69 @@
+\documentclass[unicode,11pt,a4paper,oneside,numbers=endperiod,openany]{scrartcl}
+
+\usepackage{assignment}
+
+\usepackage{amssymb}
+
+\begin{document}
+
+\setassignment
+\setduedate{10 December 2018, 23:55}
+
+\serieheader{High Performance Computing}{2018}{Student: FULL NAME}{Discussed with: FULL NAME}{Solution for Assignment 7}{}
+\newline
+
+\section*{Graph Partitioning}
+In this assignment  you will implement various graph partitioning algorithms in Matlab and test these methods on a variety of 2D meshes.
+
+
+
+\section{Install METIS 5.0.2, KaHIP  2.0, and the corresponding Matlab mex interface \punkte{10}}
+\section{Implement various graph partitioning algorithms in Matlab \punkte{40}}
+\begin{table}[h]
+	\caption{Edge-cut Results}
+	\centering
+	\begin{tabular}{l|r|r|r|r|r} \hline\hline 
+		Mesh             &  Coordinate           & Metis 5.0.2 &  KaHyPar & Spectral & Inertial  \\ \hline
+		grid5rec(8, 80)  &    8                   &            &            &          &           \\             
+		grid5rec(80, 8)  &    8                   &            &           &          &           \\ 
+		gridt(20)        &   28                   &            &           &          &           \\ 
+		grid9(30)        &   88                   &            &           &          &           \\ 
+		small            &   25                   &            &           &          &           \\
+		Tapir            &   55                   &            &           &          &           \\ 
+		Eppstein         &   42                   &            &           &          &           \\ 
+		Airfoil          &   94                   &            &           &          &           \\ 
+		cockroach(60)    &    2                   &            &           &          &           \\ \hline \hline
+	\end{tabular}
+	\label{table:edge}
+\end{table}
+
+\section{Visualize the graph partitioning \punkte{10}}
+\section{Implement in Matlab the recursive $k$-way partitioning \punkte{10}}
+\begin{table}[h]
+	\caption{Edge-cut results for k-way partitioning and the airfoil mesh.}
+	\centering
+	\begin{tabular}{l|r|r|r|r|r} \hline\hline 
+		Mesh            &  Coordinate           & Metis 5.0.2 & KaHyPar & Spectral & Inertial  \\ \hline
+		k=2             &                       &           &           &          &           \\             
+		k=4             &                       &           &           &          &           \\ 
+		k=8             &                       &           &           &          &           \\ 
+		k=16            &                       &           &           &          &           \\ 
+		k=32            &                       &           &           &          &           \\ \hline \hline
+	\end{tabular}
+	\label{table:kway}
+\end{table}
+\section{Partitioning of realistic large-scale FEM meshes \punkte{30}}
+\begin{table}[h]
+	\caption{Results for 2-way partitioning of the selected FEM mesh.}
+	\centering
+	\begin{tabular}{l|r|r} \hline\hline 
+		Metric            &  Metis 5.0.2      & KaHyPar  \\ \hline
+		Time (s)         &                       &                \\             
+		Partition 1         &                       &          \\  
+		Partition 2         &                       &         \\  
+		Edge cut            &                       &       \\ \hline \hline
+	\end{tabular}
+	\label{table:FEMkway}
+\end{table}
+
+\end{document}
