@@ -57,8 +57,17 @@ hold on
 % Count and plot the separating edges.
 [i,j] = find(A);
 f = find(map(i) > map(j));
+
+%comm volume
+volume = 0;
+for r=1:size(A,1)
+    idx = find(i == r);
+    volume = volume + length(unique(map(j(idx)))) - 1;
+end
+
 if length(f) 
-    xlabel( [int2str(length(f)) ' cut edges on ' int2str(nparts) ' partitions'],'visible','on');
+    xlabel( [int2str(length(f)) ' cut edges on ' int2str(nparts) ' partitions, '...
+        'communication volume ' int2str(volume) ],'visible','on');
     if length(ecolor)
         cut = sparse(i(f),j(f),1,n,n);
         set(gplotg(cut,xy,'-'),'color',ecolor);

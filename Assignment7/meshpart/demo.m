@@ -11,6 +11,8 @@ function meshdemo(whichdemos)
 %
 % Modified by Olaf Schenk, for HPC class at USI Lugano
 
+addpath('../tools');
+
 clear all
 close all
 
@@ -201,6 +203,19 @@ disp(' This will only work if you have Metis and its Matlab interface.');
 disp('  ');
 disp('metispart(Tmesh,Tmeshxy);');
 metispart(Tmesh,Tmeshxy);
+disp('cutsize(Tmesh,ans)');
+cutsize(Tmesh,ans)
+disp('  ');
+disp(' Hit space to continue ...');
+pause;
+
+figure(3)
+disp(' ');
+disp(' Next is a hypergrapeh partitioning method from the "hMetis 1.5" package.');
+disp(' This will only work if you have hMetis and its Matlab interface.');
+disp('  ');
+disp('metispart(Tmesh,Tmeshxy);');
+hmetispart(Tmesh,Tmeshxy);
 disp('cutsize(Tmesh,ans)');
 cutsize(Tmesh,ans)
 disp('  ');
